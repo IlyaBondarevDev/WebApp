@@ -7,9 +7,9 @@ namespace WebApp.Controllers
     {
         public string Index()
         {
-            var dateTimeInfo = new DateNameModel("Bondarev Ilya Valeryevich");
+            var dateNameInfo = new DateNameModel("Bondarev Ilya Valeryevich");
             return string.Format("Hello {0}, today is {1:d}",
-                dateTimeInfo.Name, dateTimeInfo.CurrentDate);
+                dateNameInfo.Name, dateNameInfo.CurrentDate);
         }
 
         public string Error()
