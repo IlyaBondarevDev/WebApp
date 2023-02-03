@@ -11,5 +11,10 @@ namespace WebApp.Controllers
             return string.Format("Hello {0}, today is {1:d}",
                 dateTimeInfo.Name, dateTimeInfo.CurrentDate);
         }
+
+        public string Error()
+        {
+            return "Page not found";
+        }
     }
 }
