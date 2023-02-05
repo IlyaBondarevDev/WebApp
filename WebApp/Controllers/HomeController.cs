@@ -1,20 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Numerics;
+using System.Text.Encodings.Web;
+using System.Text.Json.Serialization;
 using WebApp.Models;
 
 namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        public string Index()
+        public IActionResult Index()
         {
-            var dateNameInfo = new DateNameModel("Bondarev Ilya Valeryevich");
-            return string.Format("Hello {0}, today is {1:d}",
-                dateNameInfo.Name, dateNameInfo.CurrentDate);
+            var dateNameInfo = new UserModel("Bondarev Ilya Valeryevich", 21);
+            return View(dateNameInfo);
         }
 
-        public string Error()
+        [HttpGet]
+        public JsonResult Get()
         {
-            return "Page not found";
+            return Json(new
+            {
+                name = "Bondarev Ilya Valeryevich",
+                value = BigInteger.Parse("876846846847668768768768768").ToString(),
+            });
         }
     }
 }
