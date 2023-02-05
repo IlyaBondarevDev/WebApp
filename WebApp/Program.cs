@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Html;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 WebApplication app = builder.Build();
@@ -7,7 +9,7 @@ app.Use(async (context, next) =>
     await next();
     if (context.Response.StatusCode == 404)
     {
-        context.Request.Path = $"/Error/PageNotFound";
+        context.Request.Path = "/Error/PageNotFound";
         await next();
     }
 });

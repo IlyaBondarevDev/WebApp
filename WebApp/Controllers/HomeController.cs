@@ -8,20 +8,10 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public string Index()
         {
-            var dateNameInfo = new UserModel("Bondarev Ilya Valeryevich", 21);
-            return View(dateNameInfo);
-        }
-
-        [HttpGet]
-        public JsonResult Get()
-        {
-            return Json(new
-            {
-                name = "Bondarev Ilya Valeryevich",
-                value = BigInteger.Parse("876846846847668768768768768").ToString(),
-            });
-        }
+            var welcomeMessage = "The path to laboratory work: /lab<number>\nexample: /lab1";
+            return welcomeMessage;
+        }        
     }
 }
